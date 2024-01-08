@@ -1,3 +1,4 @@
-/.vscode
-/dist
-/vscode-lokalise-assistant-0.0.1.vsix
+.vscode/
+dist/
+vscode-lokalise-assistant-*.vsix
+node_modules
