@@ -1,0 +1,1 @@
+export const getDateAsString = () => new Date().toLocaleString('ru-RU');

@@ -1,0 +1,83 @@
+{
+  "name": "vscode-lokalise-assistant",
+  "displayName": "vscode-lokalise-assistant",
+  "description": "TBA",
+  "publisher": "Lootjs",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:json"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Lokalise Assitant",
+      "properties": {
+        "vscode-lokalise-assistant.apiToken": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Lokalise Api Token"
+        },
+        "vscode-lokalise-assistant.excludeTags": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Enter tags to exclude, separated by commas. For example: `deprecated`"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "vscode-lokalise-assistant.fetchAndCompareJson",
+        "title": "fetchAndCompareJson"
+      },
+      {
+        "command": "vscode-lokalise-assistant.setProjectId",
+        "title": "setProjectId"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "vscode-lokalise-assistant.lokaliseAssistant",
+          "name": "Lokalise Assistant"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.2",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.50.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.3"
+  }
+}
