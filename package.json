@@ -7,6 +7,10 @@
   "engines": {
     "vscode": "^1.80.0"
   },
+  "repository": {
+    "url": "https://github.com/Lootjs/vscode-lokalise-assistant"
+  },
+  "icon": "icon.png",
   "categories": [
     "Other"
   ],
